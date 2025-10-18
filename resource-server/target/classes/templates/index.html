@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Resource Server</title>
+</head>
+<body>
+    <h1>Resource Server</h1>
+    <p>Welcome, <span th:text="${username}">User</span>!</p>
+
+    <div sec:authorize="isAuthenticated()">
+        <p>You are logged in.</p>
+        <div sec:authorize="hasRole('USER')">
+            <p>You have USER role.</p>
+        </div>
+        <div sec:authorize="hasRole('ADMIN')">
+            <p>You have ADMIN role.</p>
+        </div>
+    </div>
+
+    <div sec:authorize="!isAuthenticated()">
+        <p>You are not logged in.</p>
+    </div>
+</body>
+</html>
