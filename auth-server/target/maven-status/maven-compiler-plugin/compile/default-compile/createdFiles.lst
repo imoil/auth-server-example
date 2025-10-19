@@ -1,7 +1,0 @@
-com\example\authserver\repository\RoleRepository.class
-com\example\authserver\AuthServerApplication.class
-com\example\authserver\repository\UserRepository.class
-com\example\authserver\runner\DataInitializer.class
-com\example\authserver\model\Role.class
-com\example\authserver\model\User.class
-com\example\authserver\config\SecurityConfig.class

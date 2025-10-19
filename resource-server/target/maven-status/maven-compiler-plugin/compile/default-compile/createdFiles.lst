@@ -1,4 +1,0 @@
-com\example\resourceserver\ResourceServerApplication.class
-com\example\resourceserver\web\ApiController.class
-com\example\resourceserver\config\SecurityConfig.class
-com\example\resourceserver\web\WebController.class
