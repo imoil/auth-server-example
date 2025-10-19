@@ -1,0 +1,133 @@
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+# .gitignore
+
+# ----------------------------------------------------------------
+# Section 1: Dependencies & Lock Files
+# ----------------------------------------------------------------
+# 패키지 매니저가 설치하는 모듈 폴더
+/node_modules
+
+# pnpm, yarn, npm 등 특정 패키지 매니저의 로그 파일
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# ----------------------------------------------------------------
+# Section 2: Nuxt 4 / Vue 3 Specific
+# ----------------------------------------------------------------
+# Nuxt 3+ 빌드 출력 폴더
+/.output
+
+# Nuxt 개발 서버 캐시 및 생성 파일
+/.nuxt
+
+# 정적 사이트 생성(SSG) 시 기본 출력 폴더 (Nuxt 2 방식)
+/dist
+
+# Vue CLI 등 일반적인 빌드 출력 폴더 (선택 사항)
+/dist-ssr
+
+# Nitro 빌드 캐시
+/.nitro
+
+# Nuxi CLI 생성 파일
+/src/.nuxt
+.nuxt/
+.output/
+.data/
+.dist/
+*.log
+
+# ----------------------------------------------------------------
+# Section 3: Environment Variables (Security)
+# ----------------------------------------------------------------
+# 민감한 정보를 포함하는 로컬 환경 변수 파일
+# .env.example 파일은 저장소에 포함시켜 어떤 변수가 필요한지 공유하세요.
+.env
+.env.*.local
+.env.local
+.env.development.local
+.env.production.local
+.env.test.local
+
+# ----------------------------------------------------------------
+# Section 4: IDE & Editor Configuration
+# ----------------------------------------------------------------
+# IntelliJ / WebStorm
+.idea/
+*.iml
+*.iws
+
+# VSCode
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+
+# ----------------------------------------------------------------
+# Section 5: OS Specific Files
+# ----------------------------------------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Linux
+*~
+
+# ----------------------------------------------------------------
+# Section 6: Logs & Temporary Files
+# ----------------------------------------------------------------
+*.log
+*.log*
+logs
+*.logs
+
+# 테스트 커버리지 리포트
+/coverage
+/coverage-report
+.coverage
+.coverage.*
+
+# 임시 파일
+.tmp
+.temp
