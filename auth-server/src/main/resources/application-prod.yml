@@ -1,0 +1,21 @@
+# ====================================================================
+# Production-Specific Properties
+# ====================================================================
+
+app:
+  login:
+    # For production, we default to Azure AD. 
+    # The LoginController will see this and immediately redirect to Azure AD.
+    # Change to "local-sso" or "form" if needed.
+    default-provider: azure
+
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@your-oracle-host:1521:your-sid
+    username: your-username
+    password: your-password
+    driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle12cDialect
+    hibernate:
+      ddl-auto: validate # In prod, we should not let hibernate alter the schema

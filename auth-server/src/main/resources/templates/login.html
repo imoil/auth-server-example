@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #f0f2f5; }
+        .login-container { background-color: #fff; padding: 2rem 3rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; max-width: 400px; width: 100%; }
+        h1 { margin-bottom: 1.5rem; color: #1c1e21; }
+        .form-group { margin-bottom: 1rem; text-align: left; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #4b4f56; }
+        input[type="text"], input[type="password"] { width: 100%; padding: 0.75rem; border: 1px solid #dddfe2; border-radius: 6px; box-sizing: border-box; }
+        .submit-btn { width: 100%; padding: 0.75rem; border: none; border-radius: 6px; background-color: #1877f2; color: white; font-size: 1.1rem; font-weight: bold; cursor: pointer; margin-top: 0.5rem; }
+        .submit-btn:hover { background-color: #166fe5; }
+        .error-message { color: #fa383e; margin-bottom: 1rem; }
+        .success-message { color: #28a745; margin-bottom: 1rem; }
+        .separator { display: flex; align-items: center; text-align: center; color: #8a8d91; margin: 1.5rem 0; }
+        .separator::before, .separator::after { content: ''; flex: 1; border-bottom: 1px solid #dddfe2; }
+        .separator:not(:empty)::before { margin-right: .25em; }
+        .separator:not(:empty)::after { margin-left: .25em; }
+        .idp-btn { display: block; width: 100%; padding: 0.75rem; border: 1px solid #dddfe2; border-radius: 6px; background-color: #f5f6f7; color: #4b4f56; font-size: 1rem; font-weight: bold; cursor: pointer; margin-top: 1rem; text-decoration: none; box-sizing: border-box; }
+        .idp-btn:hover { background-color: #e9ebee; }
+        .idp-btn.azure { background-color: #0072c6; color: white; border: none; }
+        .idp-btn.azure:hover { background-color: #005a9e; }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>ID Hub Login</h1>
+
+        <!-- Display error message if login fails -->
+        <div th:if="${param.error}" class="error-message">
+            Invalid username or password.
+        </div>
+        <div th:if="${param.logout}" class="success-message">
+            You have been logged out.
+        </div>
+
+        <!-- Username/Password Form -->
+        <form th:action="@{/login}" method="post">
+            <div class="form-group">
+                <label for="username">Email Address</label>
+                <input type="text" id="username" name="username" required autofocus>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="submit-btn">Log In</button>
+        </form>
+
+        <div class="separator">or</div>
+
+        <!-- External IdP Login Buttons -->
+        <div>
+            <!-- 
+              This link triggers the OAuth2/OIDC flow for the 'azure' client registration.
+              Spring Security's OAuth2LoginAuthenticationFilter intercepts this request.
+            -->
+            <a href="/oauth2/authorization/azure" class="idp-btn azure">Login with Azure AD</a>
+            
+            <!-- 
+              This is a placeholder for the custom Local SSO flow.
+              It currently links to a placeholder endpoint.
+              TODO: The href and implementation will need to be updated once the
+              technical details of the Local SSO API are known.
+            -->
+            <a href="/login/local-sso" class="idp-btn">Login with Local SSO</a>
+        </div>
+    </div>
+</body>
+</html>

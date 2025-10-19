@@ -68,7 +68,7 @@ public class UserRepositoryTest {
 
         // then
         User updatedUser = entityManager.find(User.class, user.getId());
-        assertThat(updatedUser.getUsername()).isEqualTo("updatedUsername");
+        assertThat(updatedUser.getDisplayName()).isEqualTo("updatedUsername");
     }
 
     @Test

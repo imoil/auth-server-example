@@ -1,15 +1,23 @@
-server:
-  port: 9000
+# ====================================================================
+# Development-Specific Properties
+# ====================================================================
+
+app:
+  login:
+    # For development and local testing, we use standard form-based login by default.
+    default-provider: form
+
 spring:
   datasource:
     url: jdbc:h2:mem:authdb
-    driverClassName: org.h2.Driver
+    driver-class-name: org.h2.Driver
     username: sa
-    password: ''
+    password: password
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
-      ddl-auto: update
+      ddl-auto: update # In dev, we can allow hibernate to create/update the schema
+    show-sql: true
   h2:
     console:
       enabled: true

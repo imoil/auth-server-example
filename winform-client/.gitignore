@@ -1,0 +1,19 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.sln.docstates
+
+# Rider
+.idea/
+
+# Binaries
+bin/
+obj/
+
+# Packages
+packages/
+*.nupkg
+
+# User-specific files
+*.userprefs

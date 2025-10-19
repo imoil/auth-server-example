@@ -1,23 +1,76 @@
+# ====================================================================
+# Default Application Properties
+# ====================================================================
+
+# ----------------------------------------
+# Custom Application-Specific Properties
+# ----------------------------------------
+app:
+  login:
+    # Set the default login provider. 
+    # Possible values: "form", "azure", "local-sso"
+    default-provider: form
+
+# ====================================================================
+# Spring Security & OAuth2 Client Configuration
+# ====================================================================
 spring:
-  application:
-    name: auth-server
-  profiles:
-    active: dev
   security:
     oauth2:
       client:
-        registration:
-          azure:
-            provider: azure
-            client-id: YOUR_CLIENT_ID_FROM_AZURE
-            client-secret: YOUR_CLIENT_SECRET_FROM_AZURE
-            client-authentication-method: client_secret_basic
-            authorization-grant-type: authorization_code
-            redirect-uri: '{baseUrl}/login/oauth2/code/{registrationId}'
-            scope:
-              - openid
-              - profile
-              - email
-        provider:
-          azure:
-            issuer-uri: https://login.microsoftonline.com/YOUR_TENANT_ID_FROM_AZURE/v2.0
+        # registration:
+          # ----------------------------------------
+          # Azure AD Client Registration
+          # TODO: Uncomment and replace placeholders with your actual Azure AD app registration details.
+          # ----------------------------------------
+          # azure:
+          #   provider: azure
+          #   # Your application's client ID provided by Azure AD.
+          #   client-id: "YOUR_AZURE_CLIENT_ID"
+          #   # Your application's client secret provided by Azure AD.
+          #   client-secret: "YOUR_AZURE_CLIENT_SECRET"
+          #   # The authentication method used by the client when authenticating with the provider.
+          #   client-authentication-method: client_secret_basic
+          #   # The type of grant the client can use to obtain an access token.
+          #   authorization-grant-type: authorization_code
+          #   # The redirect URI where the user is sent after authentication.
+          #   # Spring will automatically resolve {baseUrl}, {action}, and {registrationId}.
+          #   redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+          #   # Scopes to request from the provider.
+          #   scope:
+          #     - openid
+          #     - profile
+          #     - email
+
+          # ----------------------------------------
+          # Local SSO Client Registration (Placeholder)
+          # TODO: Uncomment and replace placeholders with your actual Local SSO provider details.
+          # This configuration assumes the Local SSO is an OIDC-compliant provider.
+          # If it has a custom, non-standard flow, this will need significant changes.
+          # ----------------------------------------
+          # local-sso:
+          #   provider: local-sso
+          #   client-id: "YOUR_LOCAL_SSO_CLIENT_ID"
+          #   client-secret: "YOUR_LOCAL_SSO_CLIENT_SECRET"
+          #   client-authentication-method: client_secret_basic
+          #   authorization-grant-type: authorization_code
+          #   redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+          #   scope: 
+          #     - openid
+          #     - profile
+
+        # provider:
+          # ----------------------------------------
+          # Azure AD Provider Configuration
+          # ----------------------------------------
+          # azure:
+          #   # The Issuer URI of the Azure AD tenant.
+          #   # TODO: Replace YOUR_TENANT_ID with your actual Azure AD Tenant ID.
+          #   issuer-uri: "https://login.microsoftonline.com/YOUR_TENANT_ID/v2.0"
+
+          # ----------------------------------------
+          # Local SSO Provider Configuration (Placeholder)
+          # TODO: Uncomment and replace with the actual Issuer URI of your Local SSO provider.
+          # ----------------------------------------
+          # local-sso:
+          #   issuer-uri: "http://localhost:8090/realms/local-sso"
