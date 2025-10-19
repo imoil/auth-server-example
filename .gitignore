@@ -86,11 +86,6 @@ pnpm-debug.log*
 # ----------------------------------------------------------------
 # Section 4: IDE & Editor Configuration
 # ----------------------------------------------------------------
-# IntelliJ / WebStorm
-.idea/
-*.iml
-*.iws
-
 # VSCode
 .vscode/*
 !.vscode/extensions.json
@@ -118,7 +113,6 @@ desktop.ini
 # Section 6: Logs & Temporary Files
 # ----------------------------------------------------------------
 *.log
-*.log*
 logs
 *.logs
 
